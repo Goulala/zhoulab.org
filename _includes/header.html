@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="topbar">
+    <a class="brand" href="{{ '/' | relative_url }}">Zhou Lab</a>
+
+    <nav aria-label="Main navigation">
+      <a {% if page.active == 'home' %}class="active"{% endif %} href="{{ '/' | relative_url }}">Home</a>
+      <a {% if page.active == 'research' %}class="active"{% endif %} href="{{ '/research.html' | relative_url }}">Research</a>
+      <a {% if page.active == 'yiming' %}class="active"{% endif %} href="{{ '/yiming-zhou.html' | relative_url }}">Yiming Zhou</a>
+      <a {% if page.active == 'members' %}class="active"{% endif %} href="{{ '/members.html' | relative_url }}">Lab Members</a>
+      <a {% if page.active == 'publications' %}class="active"{% endif %} href="{{ '/publications.html' | relative_url }}">Publication</a>
+      <a {% if page.active == 'gallery' %}class="active"{% endif %} href="{{ '/lab-gallery.html' | relative_url }}">Lab Gallery</a>
+      <a {% if page.active == 'contact' %}class="active"{% endif %} href="{{ '/contact.html' | relative_url }}">Contact</a>
+    </nav>
+  </div>
+</header>

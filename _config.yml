@@ -1,0 +1,12 @@
+title: Zhou Lab
+description: Spatial Omics of Brain Disorders Lab
+url: ""
+baseurl: "/zhou-lab-new-site"
+
+plugins: []
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
