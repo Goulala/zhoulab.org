@@ -49,12 +49,35 @@ a:hover {
   gap: 34px;
 }
 
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-width: 0;
+}
+
 .brand {
   font-size: 42px;
   line-height: 1.1;
   font-weight: 800;
   color: var(--ink);
   white-space: nowrap;
+}
+
+.ircbc-logo-link {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.ircbc-logo-link img {
+  width: 118px;
+  height: auto;
+  display: block;
+}
+
+.ircbc-logo-link:hover {
+  opacity: 0.82;
 }
 
 nav {
@@ -417,6 +440,18 @@ p {
     align-items: flex-start;
     flex-direction: column;
     padding: 26px 24px;
+  }
+
+  .brand-group {
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 36px;
+  }
+
+  .ircbc-logo-link img {
+    width: 98px;
   }
 
   nav {

@@ -1,6 +1,13 @@
 <header class="site-header">
   <div class="topbar">
-    <a class="brand" href="{{ '/' | relative_url }}">Zhou Lab</a>
+    <div class="brand-group">
+      <a class="brand" href="{{ '/' | relative_url }}">Zhou Lab</a>
+      {% if page.active == 'home' %}
+        <a class="ircbc-logo-link" href="https://ircbc.ac.cn/" aria-label="Visit IRCBC">
+          <img src="{{ '/images/ircbc-logo-theme.png' | relative_url }}" alt="IRCBC">
+        </a>
+      {% endif %}
+    </div>
 
     <nav aria-label="Main navigation">
       <a {% if page.active == 'home' %}class="active"{% endif %} href="{{ '/' | relative_url }}">Home</a>
