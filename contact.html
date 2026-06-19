@@ -14,8 +14,9 @@ description: Contact Zhou Lab.
 
     <div class="map-frame" aria-label="Map location for Zhou Lab">
       <div class="map-card">
-        <div class="map-visual" aria-hidden="true">
-          <span class="map-pin"></span>
+        <div class="map-visual">
+          <div id="amap-container" class="amap-container" aria-label="AMap location for Zhou Lab"></div>
+          <div id="amap-fallback" class="map-fallback">Loading AMap...</div>
         </div>
 
         <div class="map-copy">
@@ -34,3 +35,63 @@ description: Contact Zhou Lab.
     </div>
   </section>
 </main>
+
+<script src="https://webapi.amap.com/maps?v=1.4.15&amp;key=6c4ad49bba9e853df7d6a9bb8fe8f496"></script>
+<script>
+  (function () {
+    var fallback = document.getElementById("amap-fallback");
+    var center = [121.581786, 31.205169];
+    var name = "Interdisciplinary Research Center on Biology and Chemistry";
+
+    function showFallback(message) {
+      if (fallback) {
+        fallback.textContent = message;
+      }
+    }
+
+    if (!window.AMap) {
+      showFallback("AMap could not load. Please use the Open in AMap button.");
+      return;
+    }
+
+    try {
+      var map = new AMap.Map("amap-container", {
+        center: center,
+        zoom: 15,
+        keyboardEnable: true,
+        dragEnable: true,
+        scrollWheel: true,
+        doubleClickZoom: true
+      });
+
+      var marker = new AMap.Marker({
+        position: center,
+        title: name,
+        map: map
+      });
+
+      var infoWindow = new AMap.InfoWindow({
+        content: "<strong>" + name + "</strong><br>386 Bibo Road, Shanghai",
+        offset: new AMap.Pixel(0, -28)
+      });
+
+      marker.on("click", function () {
+        infoWindow.open(map, center);
+      });
+
+      map.on("complete", function () {
+        if (fallback) {
+          fallback.classList.add("is-hidden");
+        }
+        infoWindow.open(map, center);
+      });
+
+      map.plugin(["AMap.ToolBar", "AMap.Scale"], function () {
+        map.addControl(new AMap.ToolBar({ locate: false }));
+        map.addControl(new AMap.Scale());
+      });
+    } catch (error) {
+      showFallback("AMap could not load. Please use the Open in AMap button.");
+    }
+  })();
+</script>
